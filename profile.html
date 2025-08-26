@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- Add Google Font for Funky Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Left Side - Main Photo */
+        .main-photo {
+            width: 100%;
+            height: 70vh;
+            background: url('https://i.postimg.cc/B6bv4jwj/IMG-20250708-201846-152.webp') center/cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Right Side - Basic Info & Description */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .basic-info p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .passion-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            color: #444;
+        }
+
+        /* Floating Photos & Education & Skills Section */
+        .floating-and-skills {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Left for skills, right for photos */
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Floating Photos Section */
+        .floating-photos {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .floating-photos div {
+            width: 100%;
+            height: 40vh; /* Increased height for vertical images */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: rotate(5deg);
+            transition: transform 0.3s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .floating-photos div:nth-child(2) {
+            transform: rotate(-5deg);
+        }
+
+        .floating-photos div:nth-child(3) {
+            transform: rotate(3deg);
+        }
+
+        .floating-photos div:hover {
+            transform: rotate(0) scale(1.1);
+        }
+
+        /* Education & Skills Section */
+        .education-skills {
+            padding: 1rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-skills h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .education-skills ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns for skills */
+            gap: 1rem;
+        }
+
+        .education-skills li {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            color: #555;
+            padding: 0.5rem;
+            background: #f0f0f0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Work in Progress Text */
+        .work-in-progress {
+            text-align: center;
+            margin-top: 2rem;
+            font-family: 'Pacifico', cursive; /* Funky font */
+            font-size: 1.5rem;
+            color: #E1306C; /* Funky color */
+            opacity: 0.8;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 2rem 0;
+        }
+
+        .video-section h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}        /* Instagram Section */
+        .instagram-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .instagram-section a {
+            color: #E1306C;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .instagram-section a i {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .main-photo {
+                height: 50vh;
+            }
+
+            .floating-and-skills {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-photos div {
+                height: 25vh;
+            }
+
+            .education-skills ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Saif ur Rehman</h1>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <!-- Left Side - Main Photo -->
+            <div class="main-photo"></div>
+
+            <!-- Right Side - Basic Info & Description -->
+            <div class="info-section">
+                <div class="basic-info">
+                    <p>📞 +92 344 5298860 (WhatsApp)</p>
+                    <p>📧 attasaiffaseeh456@gmail.com</p>
+                    <p>📍 Babar Colony, Gangal, Rawalpindi</p>
+                </div>
+
+                <div class="passion-text">
+                    <p>
+                        I have always been drawn to the art of performance and fun. While I may not have professional acting experience, my passion for being in front of the camera has always been strong. I have participated in skits and acts in my school time and recently joined the C3 Dramatics Club at COMSATS University Islamabad to further explore my interest. I also love watching movies, which has naturally built my understanding of expressions and performance. I am also an active Instagram user, keeping up with all the latest trends, and I also have Instagram meme page, started recently, by the name <I> bitsizedhumor</I>. Given the opportunity, I will dedicate myself fully to creating engaging and high-quality content.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Photos & Education & Skills Section -->
+        <div class="floating-and-skills">
+            <!-- Education & Skills (Left Side) -->
+            <div class="education-skills">
+                <h2>Education & Skills</h2>
+                <ul>
+                    <li>🎓 Currently in 3rd semester of Computer Science program</li>
+                    <li>🎭 Secured 86.5% marks in ICS</li>
+                    <li>🗣️ Participated in Speech competition in College</li>
+                    <li>🌐 Languages: Urdu, English, Punjabi</li>
+                    <li>🎭 Skills: Communication, Socialization, Creativity, Trend Awareness, Teamwork and Collaboration</li>
+                    <li>💻 Basic knowledge of Python and Java</li>
+                    <li>🎬 Sports Enthusiast</li>
+                </ul>
+
+                <!-- Work in Progress Text -->
+                <div class="work-in-progress">
+                    Work in Progress – More Skills to Come!
+                </div>
+            </div>
+
+            <!-- Floating Photos (Right Side) -->
+            <div class="floating-photos">
+                <div style="background: url('https://i.postimg.cc/SsYHqqq6/edited3.jpg') center/cover;"></div>
+                <div style="background: url('https://i.postimg.cc/ZqMX10kY/edited2.jpg') center/cover;"></div>
+                <div style="background: url('https://i.postimg.cc/CK1WPkQ6/edited.jpg') center/cover;"></div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section">
+    <h2>Introductory Video</h2>
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/GGvN12JJXzo" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+        <!-- Instagram Section -->
+        <div class="instagram-section">
+            <a href="https://www.instagram.com/saif.ur.rehman__/#" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>My Instagram: saif.ur.rehman__</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
